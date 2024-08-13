@@ -1,6 +1,4 @@
-//=====[Libraries]=============================================================
 #include "arm_book_lib.h"
-
 #include "system.h"
 
 //#include "sensor_rfid.h"
