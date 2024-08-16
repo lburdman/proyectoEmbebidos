@@ -7,28 +7,48 @@
 #define PIN_BLE_RX PD_5
 #define PIN_BLE_STATE PD_4
 
-UnbufferedSerial bleCom(PIN_BLE_TX, PIN_BLE_RX, BLE_COM_BAUDRATE);
+UnbufferedSerial ble(PIN_BLE_TX, PIN_BLE_RX, BLE_COM_BAUDRATE);
 
-void bleComStringWrite(char* str) {
-    bleCom.write(str, strlen_(str));
+void testBLE() {
+    char message[] = "BLE funciona\n";
+    bleStringWrite(message);
+}
+
+void bleStringWrite(char* str) {
+    ble.write(str, strlen_(str));
 }
 
 void SerialComStringRead(char* str, int strLength) {
     int strIndex;
     for (strIndex = 0; strIndex < strLength; strIndex++) {
-        bleCom.read(&str[strIndex], 1);
-        bleCom.write(&str[strIndex], 1);
+        ble.read(&str[strIndex], 1);
+        ble.write(&str[strIndex], 1);
     }
     str[strLength]='\0';
 }
 
-char bleComCharRead() {
+char bleCharRead() {
     char receivedChar = '\0';
-    if(bleCom.readable()) {
-        bleCom.read(&receivedChar, 1);
+    if(ble.readable()) {
+        ble.read(&receivedChar, 1);
     }
     return receivedChar;
 }
 
+void SerialComUpdate() {
+    char receivedChar = bleCharRead();
+    if (receivedChar != '\0') {
+        switch (receivedChar) {
+            case 'r': 
+                //bleStringWrite();
+                break;    
+            case 'l': 
+                //DataRecibida = true;
+                break;
+            default: 
+                break;
+        } 
+    }
+}
 
 

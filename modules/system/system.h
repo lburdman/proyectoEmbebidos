@@ -1,3 +1,6 @@
+#include "ble_com.h"
+//Mas includes
+
 #ifndef _SYSTEM_H_
 #define _SYSTEM_H_
 

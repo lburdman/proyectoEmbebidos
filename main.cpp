@@ -3,9 +3,10 @@
 #include "system.h"
 
 int main() {
-    SystemInit();
+    //SystemInit();
     while(true) {
-        SystemUpdate();
+        //SystemUpdate();
+        testBLE();
     }
 }
 

@@ -9,6 +9,10 @@
 
 #define MAX_LETRAS 50
 
+size_t my_strlen(const char *str, size_t acc = 0);
+char * my_strcpy(char *strDest, const char *strSrc);
+char* my_strchr(char* , char );
+
 uint32_t strlen_(const char* str);
 bool strcmp_(const char* cad1, const char* cad2);
 char* strcpy_(char* dst, char* src);

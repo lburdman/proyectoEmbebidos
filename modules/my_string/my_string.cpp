@@ -1,5 +1,33 @@
 #include "my_string.h"
 
+size_t my_strlen(const char *str, size_t acc)
+{
+      return *str ? my_strlen(str+1, acc + 1) : acc;
+}
+
+char * my_strcpy(char *strDest, const char *strSrc)
+{
+    char *temp = NULL;
+    if (strDest!=NULL && strSrc!=NULL)
+    {
+        char *temp = strDest;
+        while((*strDest++ = *strSrc++) != '\0');
+    }
+    return temp;
+}
+
+char* my_strchr(char* str, char ch)
+{
+    while (*str != '\0')
+    {
+        if (*str == ch)
+            return str;
+            
+        str++;
+    }
+    return NULL;
+}
+
 bool strcmp_(const char* cad1, const char* cad2) {
     while (*cad1 && *cad2 && (*cad1 == *cad2)) {
         cad1++;
